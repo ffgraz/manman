@@ -1,0 +1,25 @@
+<%= render :partial => "person/nav"  %>
+
+<h1>New Location</h1>
+
+<%= start_form_tag :action => 'create', :id => @location %>
+  <table>
+  <tr>
+    <td>Name</td><td><%= text_field 'location', 'name' %>*</td>
+  </tr>
+  <tr>
+    <td>Strasse</td><td><%= text_field 'location', 'street' %></td>
+  </tr>
+  <tr>
+    <td>Hausnr.</td><td><%= text_field 'location', 'streetnr' %></td>
+  </tr>
+<td>Kommentar</td><td><%= text_area 'location', 'comment' %></td>
+    <%= hidden_field 'location', 'pixel_x' %>
+    <%= hidden_field 'location', 'pixel_y' %>
+  </tr>
+  </table>
+  <%= submit_tag 'Create' %>
+<%= end_form_tag %>
+
+<p>Bitte Felder mit <strong>*</strong> eintragen</p>
+<p>Unter <strong>Name</strong> bitte nur Kleinbuchstaben und Ziffern <strong>ohne</ohne> Leerzeichen eintragen</p>

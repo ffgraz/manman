@@ -1,0 +1,21 @@
+<%= render :partial => "person/nav"  %>
+
+<h1>Location</h1>
+<%= render :partial => "location/pshow", :object => { @location, @mappe } %>
+
+<hr>
+<h2>Nodes</h2>
+<%= render :partial => "node/pshow", :object => @nodes %>
+<%= link_to 'New Node', :controller => 'node', :action => 'new', :location => @location.id %>
+
+<hr>
+<h2>IP Netze</h2>
+<%= render :partial => "net/plist", :object => @nets %>
+
+<hr>
+<h2>Administrator</h2>
+<% if @person != nil %>
+  <%= render :partial => "person/pshow",  :object => @person %>
+<% end %>
+<hr>
+<a href="https://db.ffgraz.net/cgi-bin/funkfeuer/index.cgi?conf=conf/ff_location&q_id=<%= @location.id %>">edit location in DBMS</a>

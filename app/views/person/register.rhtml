@@ -1,0 +1,35 @@
+<h1>register Person</h1>
+<p>Hier kannst du dich fuer FunkFeuer Graz registrieren damit wir dir IP Adressen und 
+  Locations zuordnen koennen.
+</p>
+<%= start_form_tag :action => 'create', :id => @person %>
+  <table>
+  <tr>
+    <td>Nickname</td><td><%= text_field 'person', 'nick' %></td>
+  </tr>
+  <tr>
+    <td>Vorname</td><td><%= text_field 'person', 'firstname' %>*</td>
+  </tr>
+  <tr>
+    <td>Nachname</td><td><%= text_field 'person', 'lastname' %>*</td>
+  </tr>
+  <tr>
+    <td>Email:</td><td><%= text_field 'person', 'email' %>*</td>
+  </tr>
+  <tr>
+    <td>Tel:</td><td><%= text_field 'person', 'tel' %></td>
+  </tr>
+  <tr>
+    <td>Passwort</td><td><%= password_field_tag 'password' %>*</td>
+  </tr>
+  <tr>
+    <td>Passwort</td><td><%= password_field_tag 'password2' %>*</td>
+  </tr>
+
+  </table>
+  <%= submit_tag 'Create' %>
+<%= end_form_tag %>
+
+<p>Bitte mindestens Felder mit <strong>*</strong> eintragen</p>
+<p>Die Felder <strong>Nickname</strong>, <strong>Email</strong> und <strong>Tel</strong>
+  koennen von allen angemeldeten Benutzern eingesehen werden.</p>

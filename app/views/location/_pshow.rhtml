@@ -1,0 +1,29 @@
+
+<% if @location != nil %>
+<table>
+  <tr>
+    <td>Name:</td><td><%= @location.name %></td>
+  </tr>
+  <tr>
+    <td>Strasse:</td><td><%= @location.street %></td>
+  <tr>
+    <td>Hausnr.:</td><td><%= @location.streetnr %></td>
+  </tr>
+  <tr>
+    <td>Kommentar:</td><td><%= @location.comment %></td>
+  </tr>
+  <tr>
+    <td>changed:</td><td><%= @location.time %></td>
+  </tr>
+  <tr>
+    <td>Links:</td>
+    <td>
+    <%= link_to('Smokeping','http://stats.ffgraz.net/smokeping/index.cgi?target=Funkfeuer.' + @location.name) %><br />
+    <% if @location.gallery_link != nil %>
+      <%= link_to 'Gallery', @location.gallery_link %><br />
+    <% end %>
+    <%= link_to 'google maps', @googlemap %><br /></td>
+  </tr>
+</table>
+<p><%= link_to 'Edit', { :action => 'edit', :id => @location.id } %>
+<% end %>

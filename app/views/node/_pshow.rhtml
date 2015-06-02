@@ -1,0 +1,54 @@
+
+<% @nodes.each do |node| %>
+<table border="1" width="600">
+  <tr>
+    <td width="120"><strong>Name</strong></td>
+    <td colspan="5"><%= node.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Kommentar</strong></td>
+    <td colspan="5"><%= node.comment %></td>
+  </tr>
+  <tr>
+  <% if node.person %>
+    <td><strong>Administrator</strong></td>
+    <td colspan="5"><%= node.person.email %></td>
+  <% end %>
+  <tr>
+    <td rowspan="<%= node.ip.length()+1 %>"><strong>Interfaces</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>IP</strong></td>
+    <td><strong>Netmask</strong></td>
+    <td colspan="2"><strong>Link</strong></td>
+    <% node.ip.each do |ip| %>
+      <tr>
+        <td><%= ip.name %></td>
+        <td><%= link_to ip.ip, "http://#{ip.ip}" %></td>
+	<% if ip.nets != nil %>
+	  <% if ip.nets.netmask != '255.255.255.255' %>
+	    <td><%= ip.nets.netmask %></td>
+	  <% else %>
+	    <td><%= '255.255.0.0' %></td>
+	  <% end %>
+	<% else %>
+	<td><%= ip.net_id %></td>
+	<% end %>
+	<td><%= link_to "intern", "http://#{ip.name}.#{node.name}.#{node.location.name}.graz.funkfeuer.at" %> | <%= link_to "extern", "http://#{ip.name}.#{node.name}.#{node.location.name}.ext.graz.funkfeuer.at" %></td>
+      </tr>
+    <% end %>
+  </tr>
+  <tr>
+    <td><strong>Smokeping</strong></td>
+    <% if node.smokeping %>
+      <td colspan="5">enabled</td>
+    <% else %>
+      <td colspan="5">disabled</td>
+    <% end %>
+  </tr>
+</table>
+<p>
+  <%= link_to 'Edit', { :controller =>'node', :action => 'edit' , :id => node.id } %> | 
+  <%= link_to 'Destroy', { :controller => 'node', :action => 'destroy', :id => node.id } %>
+</p>
+<p></p>
+<% end %>

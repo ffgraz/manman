@@ -1,0 +1,19 @@
+<table>
+    <th>Name</th>
+    <th>Strasse</th>
+    <th>Hausnr.</th>
+    <th>Kommentar</th>
+
+<% @locations.each do |location| %>
+  <tr>
+    <td><%= location.name %></td>
+    <td><%= location.street %></td>
+    <td><%= location.streetnr %></td>
+    <td><%= location.comment %></td>
+    <td><%= link_to 'Show', :action => 'show', :controller => 'location', :id => location %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :controller => 'location', :id => location %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :controller => 'location', :id => location }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+

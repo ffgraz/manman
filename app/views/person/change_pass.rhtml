@@ -1,0 +1,22 @@
+<%= render :partial => "person/nav"  %>
+<h1>Passwort aendern</h1>
+
+<%= form_tag :action => "do_change_pass", :id => @person.id %>
+<table>
+  <tr>
+    <td>altes Passwort:</td>
+    <td><%= password_field_tag 'oldpassword' %></td>
+  </tr>
+  <tr>
+    <td>neues Passwort:</td>
+    <td><%= password_field_tag 'password'  %></td>
+  </tr>
+  <tr>
+    <td>nochmals:</td>
+    <td><%= password_field_tag 'password2' %></td>
+  </tr>
+</table>
+
+<%= submit_tag 'Change' %>
+<%= end_form_tag %>
+
