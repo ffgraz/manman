@@ -1,0 +1,73 @@
+---
+name: manman
+
+provider:
+  name: docker
+  dockerfile:
+    - USER manman
+    - WORKDIR /srv/manman
+    - CMD script/server
+    - EXPOSE 3000
+  labels:
+    name: "manman-{system.release}-{system.architecture}-{%y}{%m}{%d}"
+    description: "{system.release} container for legacy manman"
+
+bootstrapper:
+  workspace: /opt/bootstrap-vz
+  variant: minbase
+
+system:
+  release: squeeze
+  architecture: amd64
+  bootloader: none
+  charmap: UTF-8
+  hostname: manman
+  locale: en_US
+  timezone: Europe/Vienna
+
+volume:
+  backing: folder
+  partitions:
+    type: none
+    root:
+      filesystem: ext4
+      size: 1GiB
+
+packages:
+  components: [main, contrib, non-free]
+  mirror: http://debian.ffgraz.net/archive
+
+#  sources:
+#    main:
+#      - deb [check-valid-until=no] http://debian.ffgraz.net/archive squeeze-lts main contrib non-free
+
+  install:
+    - adduser
+    - ruby
+    - rubygems
+
+
+plugins:
+  file_copy:
+    files:
+      - src: .
+        dst: /srv/manman
+      - src: gemrc
+        dst: /etc/
+
+  commands:
+    commands:
+      - [chroot, '{root}', gem, install, -v=0.8.7, rake]
+      - [chroot, '{root}', gem, install, -v=1.2.6, rails]
+      - [chroot, '{root}', adduser, --system, --group,
+         --home, /var/lib/manman, manman]
+
+  minimize_size:
+    apt:
+      autoclean: true
+      languages: [none]
+      gzip_indexes: true
+      autoremove_suggests: true
+    dpkg:
+      locales: []
+      exclude_docs: true
