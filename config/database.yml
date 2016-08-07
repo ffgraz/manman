@@ -15,4 +15,4 @@ development:
   database: mappe
   username: mappe
   password: <%= ENV['MANMAN_DB_PWD'] %>
-  socket: /var/run/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
