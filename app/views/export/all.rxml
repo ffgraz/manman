@@ -1,0 +1,31 @@
+xml.instruct! :xml, :version=>"1.0" 
+
+xml.network{
+  for location in @locations
+    xml.location do
+      xml.name(location.name)
+      xml.street(location.street)
+      xml.streetnr(location.streetnr)
+      xml.comment(location.comment)
+      xml.gallery(location.gallery_link)
+      xml.lat(location.lat)
+      xml.lon(location.lon)
+
+      for node in location.node
+        xml.node do
+          xml.name(node.name)
+          xml.comment(node.comment)
+
+          for ip in node.ip
+            xml.ip do
+              xml.name(ip.name)
+              xml.address(ip.ip)
+              xml.dns("#{ip.name}.#{node.name}.#{location.name}")
+            end
+          end
+
+        end
+      end
+    end
+  end
+}

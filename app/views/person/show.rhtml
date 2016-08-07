@@ -1,0 +1,8 @@
+<%= render :partial => "person/nav"  %>
+<h1>Person</h1>
+<%= render :partial => "person/pshow", :object =>  @person  %>
+<hr>
+<h2>Locations</h2>
+<%= render :partial => "location/plist",
+           :object => @locations %>
+

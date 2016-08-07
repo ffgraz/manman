@@ -1,0 +1,44 @@
+<%= render :partial => "person/nav"  %>
+
+<h1>Neuer Router</h1>
+
+<%= start_form_tag :action => 'do_new' %>
+  <table>
+  <tr>
+    <td>Location:</td>
+    <td>
+      <%= @node.location.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>Name:</td><td><%= text_field 'node', 'name' %></td>
+  </tr>
+  <tr>
+    <td>Kommentar:</td><td><%= text_area 'node', 'comment', 'rows' => 4 %></td>
+  </tr>
+  <tr>
+    <td>Administrator</td>
+    <td>
+      <select name="node[person_id]">
+      <option value="0"> - </option
+        <% @persons.each do |person| %>
+          <option value="<%= person.id %>"
+            <%= ' selected' if @session[:person].id == person.id %>>
+            <%= person.email %>
+          </option>
+        <% end %>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Smokeping</td>
+    <td><%= check_box "node", "smokeping" %></td>
+  </tr>
+  </table>
+  <%= hidden_field 'node', 'location_id' %>
+  <%= submit_tag "Create" %>
+<%= end_form_tag %>
+
+
+<h2>Hinweise</h2>
+<p>Als <strong>Name</strong> bitte z.B <strong>'omni'</strong> oder einen anden anderen, die Abstrahlcharakteristik bezeichenden Namen.</p>

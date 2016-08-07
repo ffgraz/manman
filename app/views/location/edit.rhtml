@@ -1,0 +1,40 @@
+<%=  render :partial => "person/nav"  %>
+
+<h1>Location</h1>
+<%= form_tag :action => 'update', :id => @location %>
+  <table>
+  <tr>
+    <td>Name</td><td><%= text_field 'location', 'name' %></td>
+  </tr>
+  <tr>
+    <td>Strasse</td><td><%= text_field 'location', 'street' %></td>
+  </tr>
+  <tr>
+    <td>Hausnummer</td><td><%= text_field 'location', 'streetnr' %></td>
+  </tr>
+  <tr>
+    <td>Kommentar</td><td><%= text_field 'location', 'comment' %></td>
+  </tr>
+  <tr>
+    <td>Administrator</td><td>
+      <select name="location[person_id]">
+      <option value="0"> - </option
+        <% @persons.each do |person| %>
+          <option value="<%= person.id %>"
+            <%= ' selected' if @location.person != nil && person.id == @location.person.id %>>
+            <%= person.email %>
+          </option>
+        <% end %>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Gallery</td><td><%= text_field 'location', 'gallery_link' %></td>
+  </tr>
+  </table>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+
+<%= link_to 'Show', :action => 'show', :id => @location %> |
+<%= link_to 'Back', :action => 'list' %>
+

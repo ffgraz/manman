@@ -1,0 +1,20 @@
+<% if @person != nil %>
+<table>
+  <tr>
+    <td>Nick:</td><td><%= @person.nick %></td>
+  </tr>
+  <tr>
+    <td>Email:</td><td><%= mail_to @person.email, @person.email, :encode => 'hex' %></td>
+  </tr>
+  <tr>
+    <td>Tel:</td><td><%= @person.tel %></td>
+  </tr>
+</table>
+<p>
+   <%= link_to 'Show', { :action => 'show', :controller => 'person', :id => @person.id } %> |
+   <%= link_to 'Edit', { :action => 'edit', :controller => 'person', :id => @person.id } %> |
+   <%= link_to 'Change Password', { :action => 'change_pass', 
+                                    :controller => 'person', 
+				    :id => @person.id } %>
+</p>
+<% end %>

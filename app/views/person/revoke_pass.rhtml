@@ -1,0 +1,15 @@
+<h1>Revoke Passwort</h1>
+<p>Bitte geben Sie Ihre email Adresse ein.<br/>
+Ein neues Passwort wird Ihnen dann zugesendet.</p>
+
+<%= form_tag :action => "do_revoke" %>
+<table>
+  <tr>
+    <td>Email:</td>
+    <td><%= text_field 'person', 'email' %>
+  </tr>
+</table>
+
+<%= submit_tag 'Revoke' %>
+<%= end_form_tag %>
+

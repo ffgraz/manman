@@ -1,0 +1,26 @@
+<%= render :partial => "person/nav"  %>
+<h1>Person</h1>
+<%= start_form_tag :action => 'update', :id => @person %>
+  <table>
+  <tr>
+    <td>nick</td><td><%= text_field 'person', 'nick' %></td>
+  </tr>
+  <tr>
+    <td>Vorname</td><td><%= text_field 'person', 'firstname' %></td>
+  </tr>
+  <tr>
+    <td>Nachname</td><td><%= text_field 'person', 'lastname' %></td>
+  </tr>
+  <tr>
+    <td>Email:</td><td><%= text_field 'person', 'email' %></td>
+  </tr>
+  <tr>
+    <td>Tel:</td><td><%= text_field 'person', 'tel' %></td>
+  </tr>
+  </table>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+
+<%= link_to 'Show', :action => 'show', :id => @person %> |
+<%= link_to 'Back', :action => 'list' %>
+

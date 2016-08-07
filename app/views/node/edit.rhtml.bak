@@ -1,0 +1,25 @@
+<h1>Node</h1>
+<%= start_form_tag :action => 'update', :id => @node %>
+  <table>
+  <tr>
+    <td>Name</td><td><%= text_field 'node', 'name' %></td>
+  </tr>
+  <tr>
+    <td>Kommentar</td><td><%= text_field 'location', 'comment' %></td>
+  </tr>
+  <tr>
+    <td>Administrator</td><td>
+      <select name="node[person_id]">
+      <option value="0"> - </option
+        <% @persons.each do |person| %>
+          <option value="<%= person.id %>"
+            <%= ' selected' if @node.person != nil && person.id == @node.person.id %>>
+            <%= person.email %>
+          </option>
+        <% end %>
+      </select>
+    </td>
+  </tr>
+  </table>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>

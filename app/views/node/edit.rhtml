@@ -1,0 +1,34 @@
+<%= render :partial => "person/nav"  %>
+
+<h1>Node</h1>
+<%= start_form_tag :action => 'update', :id => @node %>
+  <table>
+  <tr>
+    <td>Name</td><td><%= text_field 'node', 'name' %></td>
+  </tr>
+  <tr>
+    <td>Kommentar</td><td><%= text_area('node', 'comment', :cols => 40, :rows => 5) %></td>
+  </tr>
+  <tr>
+    <td>Administrator</td>
+    <td>
+      <select name="node[person_id]">
+      <option value="0"> - </option
+        <% @persons.each do |person| %>
+          <option value="<%= person.id %>"
+            <%= ' selected' if @node.person != nil && @node.person.id == person.id %>>
+            <%= person.email %>
+          </option>
+        <% end %>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Smokeping</td>
+    <td><%= check_box "node", "smokeping" %></td>
+  </tr>
+  </table>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+<hr />
+<%= link_to 'Back', { :controller => 'location', :action => 'show', :id => @node.location.id } %>

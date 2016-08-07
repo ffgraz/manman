@@ -1,0 +1,11 @@
+<div>
+  <p>
+    <strong>Navigation:</strong> 
+    <%= link_to "Locations",  :action => "list", :controller => "location"  %> |
+    <%= link_to "Persons",  :action => 'list', :controller => 'person'  %> <br />
+    <strong>Benutzer:</strong> 
+    <%= link_to session[:person].email , :action => 'show', :controller => 'person', :id => session[:person].id %> | 
+    <%= link_to 'Logout', :action => 'logout', :controller => 'person' %>
+  </p>
+</div>
+<hr />
