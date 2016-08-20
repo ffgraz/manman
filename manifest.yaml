@@ -66,6 +66,7 @@ plugins:
 
   commands:
     commands:
+      - [rm, -rf, '{root}/srv/manman/.git']
       - [chroot, '{root}', gem, install, -v=0.8.7, rake]
       - [chroot, '{root}', gem, install, -v=1.2.6, rails]
       - [chroot, '{root}', adduser, --system, --group,
