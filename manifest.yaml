@@ -8,6 +8,7 @@ provider:
     - WORKDIR /srv/manman
     - CMD script/server
     - EXPOSE 3000
+
   labels:
     name: "manman-{system.release}-{system.architecture}-{%y}{%m}{%d}"
     description: "{system.release} container for legacy manman"
@@ -45,6 +46,7 @@ packages:
     - adduser
     - libmysqlclient16
     - libmysql-ruby1.8
+    - msmtp-mta
     - ruby
     - rubygems
 
@@ -58,6 +60,8 @@ plugins:
       - src: .
         dst: /srv/manman
       - src: gemrc
+        dst: /etc/
+      - src: msmtprc
         dst: /etc/
 
   commands:
