@@ -12,7 +12,14 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: mysql
-  database: mappe
-  username: mappe
-  password: <%= ENV['MANMAN_DB_PWD'] %>
+  database: <%= ENV['MANMAN_DB_NAME'] %>
+  username: <%= ENV['MANMAN_DB_USER'] %>
+  password: <%= ENV['MANMAN_DB_PWD']  %>
+  socket: /var/run/mysqld/mysqld.sock
+
+production:
+  adapter: mysql
+  database: <%= ENV['MANMAN_DB_NAME'] %>
+  username: <%= ENV['MANMAN_DB_USER'] %>
+  password: <%= ENV['MANMAN_DB_PWD']  %>
   socket: /var/run/mysqld/mysqld.sock
