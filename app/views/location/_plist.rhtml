@@ -5,6 +5,7 @@
     <th>Kommentar</th>
 
 <% @locations.each do |location| %>
+<% if @location.archived %>
   <tr>
     <td><%= location.name %></td>
     <td><%= location.street %></td>
@@ -14,6 +15,7 @@
     <td><%= link_to 'Edit', :action => 'edit', :controller => 'location', :id => location %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :controller => 'location', :id => location }, :confirm => 'Are you sure?', :post => true %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 
