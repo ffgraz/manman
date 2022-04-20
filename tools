@@ -1,11 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 # Tested on Ubuntu 16.04 Virtualbox
 
 set -euxo pipefail
 
+sudo apt update
+sudo apt dist-upgrade -y
 sudo apt install bootstrap-vz python-pip docker.io -y
 sudo pip install pyrfc3339
-git clone https://github.com/adensens/bootstrap-vz
+git -c https.sshVerify=false clone https://github.com/andsens/bootstrap-vz
 git -C bootstrap-vz checkout 71ba58327cd0fe0864c8781a2816cb5a0d837d03
-
+echo "export PATH=\"$(readlink -f bootstrap-vz):\$PATH\"" >> .bashrc
