@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -euxo pipefail
+
+sudo HOME=/tmp ../bootstrap-vz/bootstrap-vz manifest.yaml
+

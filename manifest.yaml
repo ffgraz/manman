@@ -38,9 +38,15 @@ packages:
   components: [main, contrib, non-free]
   mirror: http://debian.ffgraz.net/archive
 
-#  sources:
-#    main:
-#      - deb [check-valid-until=no] http://debian.ffgraz.net/archive squeeze-lts main contrib non-free
+  apt.conf.d:
+    00SecurityOutOfTheWindow: >-
+      Acquire::AllowInsecureRepositories "true";
+      Acquire::AllowDowngradeToInsecureRepositories "true";
+      APT::Get::AllowUnauthenticated "true";
+
+  sources:
+    main:
+      - deb [check-valid-until=no] http://debian.ffgraz.net/archive squeeze-lts main contrib non-free
 
   install:
     - adduser
