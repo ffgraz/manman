@@ -2,5 +2,5 @@
 
 set -euxo pipefail
 
-sudo HOME=/tmp ../bootstrap-vz/bootstrap-vz manifest.yaml
+HOME=/tmp sudo ../bootstrap-vz/bootstrap-vz manifest.yaml
 
