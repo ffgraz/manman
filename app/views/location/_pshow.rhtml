@@ -1,5 +1,12 @@
 
 <% if @location != nil %>
+
+<% if @location.archived %>
+<div style="background: red; color: white; border: black 1px solid;">
+  Diese Node ist archiviert
+</div>
+<% end %>
+
 <table>
   <tr>
     <td>Name:</td><td><%= @location.name %></td>

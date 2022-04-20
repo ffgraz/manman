@@ -16,6 +16,9 @@
     <td>Kommentar</td><td><%= text_field 'location', 'comment' %></td>
   </tr>
   <tr>
+    <td>Archiviert</td><td><%= check_box 'location', 'archived' %></td>
+  </tr>
+  <tr>
     <td>Administrator</td><td>
       <select name="location[person_id]">
       <option value="0"> - </option
