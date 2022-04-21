@@ -63,7 +63,7 @@ class PersonController < ApplicationController
   # edit a specific person identified by param person id
   def edit
     @person = Person.find(params[:id])
-    if session[:person] != @person and session[:person].email != 'nine@wirdorange.org'
+    if session[:person] != @person and session[:person].email != 'mkg20001@gmail.com'
       flash[:notice] = 'Sie haben nicht die Berechtigung hierfür.'
       redirect_to :back
     end
@@ -72,7 +72,7 @@ class PersonController < ApplicationController
   # update the information about a person identified by person id
   def update
     @person = Person.find(params[:id])
-    if session[:person] != @person and session[:person].email != 'nine@wirdorange.org'
+    if session[:person] != @person and session[:person].email != 'mkg20001@gmail.com'
       flash[:notice] = 'Sie haben nicht die Berechtigung hierfür.'
       redirect_to :back
     else 
