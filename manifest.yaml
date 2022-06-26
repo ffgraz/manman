@@ -73,6 +73,8 @@ plugins:
   commands:
     commands:
       - [rm, -rf, '{root}/srv/manman/.git']
+      - [rm, -rf, '{root}/srv/manman/.vagrant']
+      - [rm, -rf, '{root}/srv/manman/manman.docker.tar']
       - [chroot, '{root}', gem, install, -v=0.8.7, rake]
       - [chroot, '{root}', gem, install, -v=1.2.6, rails]
       - [chroot, '{root}', adduser, --system, --group,
