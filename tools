@@ -8,6 +8,7 @@ sudo apt update
 sudo apt dist-upgrade -y
 sudo apt install bootstrap-vz python-pip docker.io -y
 sudo pip install pyrfc3339
+sudo addgroup $(whoami) docker
 git -c https.sshVerify=false clone https://github.com/andsens/bootstrap-vz
 git -C bootstrap-vz checkout 71ba58327cd0fe0864c8781a2816cb5a0d837d03
 echo "export PATH=\"$(readlink -f bootstrap-vz):\$PATH\"" >> .bashrc
