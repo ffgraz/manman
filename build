@@ -2,5 +2,5 @@
 
 set -euxo pipefail
 
-HOME=/tmp sudo env MANMAN_DB_NAME=manman MANMAN_DB_USER=manman MANMAN_DB_PWD=passwordbiatch ~/bootstrap-vz/bootstrap-vz manifest.yaml
-
+HOME=/srv/manman sudo env ~/bootstrap-vz/bootstrap-vz manifest.yaml
+docker save -o manman.docker.tar manman
