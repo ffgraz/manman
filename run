@@ -4,4 +4,4 @@ set -euxo pipefail
 
 docker load -i manman.docker.tar
 docker rm -f manman || true
-docker run -p 3000:3000 --name manman -v /run/mysqld:/var/run/mysqld -e MANMAN_DB_NAME=manman -e MANMAN_DB_USER=manman -e MANMAN_DB_PWD=passwordbiatch -d manman
+docker run -p 3000:3000 --name manman -v /run/mysqld:/var/run/mysqld -v $(readlink -f ./app):/srv/manman/app -e MANMAN_DB_NAME=manman -e MANMAN_DB_USER=manman -e MANMAN_DB_PWD=passwordbiatch -d manman

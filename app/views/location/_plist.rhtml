@@ -5,8 +5,12 @@
     <th>Kommentar</th>
 
 <% @locations.each do |location| %>
-<% unless location.archived %>
+<% unless (location.archived and not params[:show_archived]) %>
+<% if location.archived %>
+  <tr style="color: #888888">
+<% else %>
   <tr>
+<% end %>
     <td><%= h location.name %></td>
     <td><%= h location.street %></td>
     <td><%= h location.streetnr %></td>
