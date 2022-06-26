@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker image tag manman mkg20001/manman-fork:master && docker push mkg20001/manman-fork:master
