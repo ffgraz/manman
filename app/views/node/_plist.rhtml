@@ -5,13 +5,12 @@
 
 <% @nodes.each do |node| %>
   <tr>
-    <td><%= node.name %></td>
-    <td><%= node.location.name %></td>
-    <td><%= node.comment %></td>
+    <td><%= h node.name %></td>
+    <td><%= h node.location.name %></td>
+    <td><%= h node.comment %></td>
     <td><%= link_to 'Show', :action => 'show', :controller => 'node', :id => node %></td>
     <td><%= link_to 'Edit', :action => 'edit', :controller => 'node', :id => node %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :controller => 'node', :id => node }, :confirm => 'Are you sure?', :post => true %></td>
   </tr>
 <% end %>
 </table>
-

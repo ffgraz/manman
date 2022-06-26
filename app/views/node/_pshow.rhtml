@@ -3,16 +3,16 @@
 <table border="1" width="600">
   <tr>
     <td width="120"><strong>Name</strong></td>
-    <td colspan="5"><%= node.name %></td>
+    <td colspan="5"><%= h node.name %></td>
   </tr>
   <tr>
     <td><strong>Kommentar</strong></td>
-    <td colspan="5"><%= node.comment %></td>
+    <td colspan="5"><%= h node.comment %></td>
   </tr>
   <tr>
   <% if node.person %>
     <td><strong>Administrator</strong></td>
-    <td colspan="5"><%= node.person.email %></td>
+    <td colspan="5"><%= h node.person.email %></td>
   <% end %>
   <tr>
     <td rowspan="<%= node.ip.length()+1 %>"><strong>Interfaces</strong></td>
@@ -22,7 +22,7 @@
     <td colspan="2"><strong>Link</strong></td>
     <% node.ip.each do |ip| %>
       <tr>
-        <td><%= ip.name %></td>
+        <td><%= h ip.name %></td>
         <td><%= link_to ip.ip, "http://#{ip.ip}" %></td>
 	<% if ip.nets != nil %>
 	  <% if ip.nets.netmask != '255.255.255.255' %>
@@ -47,7 +47,7 @@
   </tr>
 </table>
 <p>
-  <%= link_to 'Edit', { :controller =>'node', :action => 'edit' , :id => node.id } %> | 
+  <%= link_to 'Edit', { :controller =>'node', :action => 'edit' , :id => node.id } %> |
   <%= link_to 'Destroy', { :controller => 'node', :action => 'destroy', :id => node.id } %>
 </p>
 <p></p>

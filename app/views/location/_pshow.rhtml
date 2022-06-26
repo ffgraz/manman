@@ -13,15 +13,15 @@
 
 <table>
   <tr>
-    <td>Name:</td><td><%= @location.name %></td>
+    <td>Name:</td><td><%= h @location.name %></td>
   </tr>
   <tr>
-    <td>Strasse:</td><td><%= @location.street %></td>
+    <td>Strasse:</td><td><%= h @location.street %></td>
   <tr>
-    <td>Hausnr.:</td><td><%= @location.streetnr %></td>
+    <td>Hausnr.:</td><td><%= h @location.streetnr %></td>
   </tr>
   <tr>
-    <td>Kommentar:</td><td><%= @location.comment %></td>
+    <td>Kommentar:</td><td><%= h @location.comment %></td>
   </tr>
   <tr>
     <td>changed:</td><td><%= @location.time %></td>

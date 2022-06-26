@@ -7,10 +7,10 @@
 <% @locations.each do |location| %>
 <% unless location.archived %>
   <tr>
-    <td><%= location.name %></td>
-    <td><%= location.street %></td>
-    <td><%= location.streetnr %></td>
-    <td><%= location.comment %></td>
+    <td><%= h location.name %></td>
+    <td><%= h location.street %></td>
+    <td><%= h location.streetnr %></td>
+    <td><%= h location.comment %></td>
     <td><%= link_to 'Show', :action => 'show', :controller => 'location', :id => location %></td>
     <td><%= link_to 'Edit', :action => 'edit', :controller => 'location', :id => location %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :controller => 'location', :id => location }, :confirm => 'Are you sure?', :post => true %></td>

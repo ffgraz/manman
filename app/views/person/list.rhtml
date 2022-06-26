@@ -8,13 +8,12 @@
 
 <% @persons.each do |person| %>
   <tr>
-    <td><%= person.nick %></td>
+    <td><%= h person.nick %></td>
     <td><%= mail_to person.email, person.email, :encode => "hex" %></td>
-    <td><%= person.tel %></td>
+    <td><%= h person.tel %></td>
     <td><%= link_to 'Show', :action => 'show', :id => person %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => person %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => person }, :confirm => 'Are you sure?', :post => true %></td>
   </tr>
 <% end %>
 </table>
-
