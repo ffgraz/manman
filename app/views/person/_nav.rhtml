@@ -1,11 +1,30 @@
-<div>
-  <p>
-    <strong>Navigation:</strong> 
-    <%= link_to "Locations",  :action => "list", :controller => "location"  %> |
-    <%= link_to "Persons",  :action => 'list', :controller => 'person'  %> <br />
-    <strong>Benutzer:</strong> 
-    <%= link_to session[:person].email , :action => 'show', :controller => 'person', :id => session[:person].id %> | 
-    <%= link_to 'Logout', :action => 'logout', :controller => 'person' %>
-  </p>
-</div>
-<hr />
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">ManMan</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Locations",  :action => "list", :controller => "location"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Persons",  :action => 'list', :controller => 'person'  %>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to session[:person].email , :action => 'show', :controller => 'person', :id => session[:person].id %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', :action => 'logout', :controller => 'person' %>
+          </li>
+        </ul>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<hr/>

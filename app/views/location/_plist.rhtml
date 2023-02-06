@@ -4,11 +4,12 @@
   <a href="?show_archived=1">Archivierte Knoten einblenden</a>
 <% end %>
 
-<table>
+<table class="table table-striped">
     <th>Name</th>
     <th>Strasse</th>
     <th>Hausnr.</th>
     <th>Kommentar</th>
+    <th colspan="3"></th>
 
 <% @locations.each do |location| %>
 <% unless (location.archived and not params[:show_archived]) %>

@@ -1,5 +1,6 @@
 <%= render :partial => "person/nav"  %>
 
+<div class="container">
 <h1>Location</h1>
 <%= render :partial => "location/pshow", :object => { @location, @mappe } %>
 
@@ -19,3 +20,7 @@
 <% end %>
 <hr>
 <a href="https://db.ffgraz.net/cgi-bin/funkfeuer/index.cgi?conf=conf/ff_location&q_id=<%= @location.id %>">edit location in DBMS</a>
+
+</div>
+<br>
+<br>
