@@ -9,7 +9,7 @@ class LocationController < ApplicationController
     @person = @params[:person]
     if @person != nil
       @locations = Location.find(:all,
-                       :conditions => ["person_id = ?", Person.find(:first, 
+                       :conditions => ["person_id = ?", Person.find(:first,
                                                                     :conditions => { :email => @person }).id],
                        :order => "name" )
     else
@@ -30,7 +30,7 @@ class LocationController < ApplicationController
   def update
     @location = Location.find(params[:id])
     values = params[:location]
-    values[:time] = DateTime.now
+    values[:time] = Time.now()
     if @location.update_attributes(params[:location])
       flash[:notice] = 'Location wurde erfolgreich upgedatet.'
       redirect_to :action => 'show', :id => @location
@@ -49,7 +49,7 @@ class LocationController < ApplicationController
   # id = location_id
   def show
     begin
-     
+
       @location = Location.find(params[:id])
       @person = @location.person
       @nodes = Node.find(:all, :conditions => ["location_id=?", params[:id]] )
@@ -104,6 +104,3 @@ class LocationController < ApplicationController
     end
   end
 end
-
-
-
