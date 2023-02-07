@@ -4,4 +4,4 @@ set -euxo pipefail
 
 docker load -i manman.docker.tar
 docker rm -f manman || true
-docker run -p 3000:3000 --name manman -v /run/mysqld:/var/run/mysqld -v $(readlink -f ./app):/srv/manman/app -e MANMAN_DB_NAME=manman -e MANMAN_DB_USER=manman -e MANMAN_DB_PWD=passwordbiatch -d manman
+docker run -p 3000:3000 --name manman -v /run/mysqld:/var/run/mysqld -v $(readlink -f ./app):/srv/manman/app  -v $(readlink -f ./public):/srv/manman/public -e GLUON_URL=http://localhost:5889/manman -e GLUON_SECRET=6h4876b50946b756buj5968b746se486bh4e4s786e4he -e MANMAN_DB_NAME=manman -e MANMAN_DB_USER=manman -e MANMAN_DB_PWD=passwordbiatch -d manman

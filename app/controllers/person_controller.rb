@@ -6,15 +6,15 @@ class PersonController < ApplicationController
 #  before_filter :validate_person, :only => [:edit, :update, :do_change_pass]
 
   @person = ''
- 
+
   def login
     if session[:person]
       reset_session
     end
   end
- 
+
   def sign_on
-    person = Person.authenticate( params[:person][:email], 
+    person = Person.authenticate( params[:person][:email],
                                   params[:person][:password])
 
     if person
@@ -54,7 +54,7 @@ class PersonController < ApplicationController
 
       @locations = Location.find(:all,
                        :conditions => ["person_id = ?", params[:id]] )
-    
+
     rescue ActiveRecord::RecordNotFound
       render_text "Error, Person not found"
     end
@@ -75,7 +75,7 @@ class PersonController < ApplicationController
     if session[:person] != @person and session[:person].email != 'mkg20001@gmail.com'
       flash[:notice] = 'Sie haben nicht die Berechtigung hierfür.'
       redirect_to :back
-    else 
+    else
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person wurde erfolgreich upgedatet.'
         redirect_to :action => 'show', :id => @person
@@ -93,7 +93,7 @@ class PersonController < ApplicationController
   def create
    if params[:password] == params[:password2]
       values = params[:person]
-      values[:password] = params[:password] 
+      values[:password] = params[:password]
       @person = Person.new(values)
       @person.password = params[:person][:password]
       if @person.save
@@ -117,7 +117,7 @@ class PersonController < ApplicationController
 
   # generate new password and mail to the poor guy
   def do_revoke
-    password = newpass( 8 ) 
+    password = newpass( 8 )
     @person = Person.find( :first,
                            :conditions => [ "email = ?", params[:person][:email] ] )
     if @person == nil
@@ -166,7 +166,7 @@ protected
   end
 
 private
-  # generate alphanumeric password 
+  # generate alphanumeric password
   def newpass( len )
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("1".."9").to_a
     newpass = ""

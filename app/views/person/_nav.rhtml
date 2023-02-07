@@ -19,6 +19,9 @@
             <%= link_to session[:person].email , :action => 'show', :controller => 'person', :id => session[:person].id %>
           </li>
           <li class="nav-item">
+            <%= link_to 'Gluon', :action => 'redirect', :controller => 'gluon' %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'Logout', :action => 'logout', :controller => 'person' %>
           </li>
         </ul>
