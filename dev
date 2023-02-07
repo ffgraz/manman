@@ -1,4 +1,5 @@
 #!/bin/bash
 
+rm manman.docker.tar
 vagrant ssh -c "sh -c 'cd /vagrant && ./build && yes | docker system prune'"
 ./run
