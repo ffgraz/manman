@@ -6,8 +6,8 @@ class Person < ActiveRecord::Base
   has_many :location
 
   attr_protected :password
-  
-  validates_presence_of :email, :password, :firstname, :lastname 
+
+  validates_presence_of :email, :password, :firstname, :lastname, :admin
   validates_uniqueness_of  :email
 
   validates_format_of :email,
@@ -16,8 +16,8 @@ class Person < ActiveRecord::Base
 
 
   # operator overloading for updating passwords
-  def password=(str) 
-    write_attribute(:password, Digest::MD5.hexdigest(str)) 
+  def password=(str)
+    write_attribute(:password, Digest::MD5.hexdigest(str))
   end
 
 

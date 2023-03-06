@@ -27,7 +27,7 @@ class NodeController < ApplicationController
   def update
     @node = Node.find(params[:id])
     values = params[:node]
-    if ( session[:person] != @node.location.person ) and ( session[:person].email != 'mkg20001@gmail.com' )
+    if ( session[:person] != @node.location.person ) and ( !session[:person][:admin] )
       flash[:notice] = 'Sie sind nicht berechtigt.'
       redirect_to :back
     else if @node.update_attributes(params[:node])
@@ -51,10 +51,10 @@ class NodeController < ApplicationController
     node_values[:time] = DateTime.now
     node_values[:creator_ip] = @request.env["REMOTE_ADDR"]
 
-#    Nets.find(:first, :conditions => 
+#    Nets.find(:first, :conditions =>
 
     location = Location.find(node_values[:location_id])
-    if ( session[:person] != location.person ) and ( session[:person].email != 'mkg20001@gmail.com' )
+    if ( session[:person] != location.person ) and ( !session[:person][:admin] )
       flash[:notice] = 'Sie sind nicht berechtigt.'
       redirect_to :action => 'show', :controller => 'person', :id => session[:person].id
     elsif Node.create_node(node_values)
@@ -66,4 +66,3 @@ class NodeController < ApplicationController
     end
   end
 end
-

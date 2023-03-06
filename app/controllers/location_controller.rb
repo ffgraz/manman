@@ -21,7 +21,7 @@ class LocationController < ApplicationController
   def edit
     @location = Location.find(params[:id])
     @persons = Person.find(:all)
-    if ( session[:person] != @location.person ) and ( session[:person].email != 'mkg20001@gmail.com' )
+    if ( session[:person] != @location.person ) and ( !session[:person][:admin] )
       flash[:notice] = 'Sie haben nicht die Berechtigung hierfür.'
       redirect_to :back
     end
