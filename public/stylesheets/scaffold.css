@@ -76,6 +76,10 @@ div.progressBar div.background {
   color: green;
 }
 
+.red {
+  color: red;
+}
+
 .archived {
   color: #888888;
 }
