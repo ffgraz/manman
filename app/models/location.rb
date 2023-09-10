@@ -15,7 +15,7 @@ class Location < ActiveRecord::Base
     :with => /^([0-9a-z]*)$/,
     :on =>  :save
 
-  validates_presence_of :archived
+  # validates_presence_of :archived
 
   @@x_zero = 4080
   @@lon_zero = 15.43844103813
