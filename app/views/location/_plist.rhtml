@@ -14,7 +14,7 @@
 <% @locations.each do |location| %>
 <% unless (location.archived and not params[:show_archived]) %>
 <% if location.archived %>
-  <tr style="color: #888888">
+  <tr class="archived">
 <% else %>
   <tr>
 <% end %>

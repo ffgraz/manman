@@ -71,3 +71,16 @@ div.progressBar div.background {
   height: 18px;
   width: 0%;
 }
+
+.green {
+  color: green;
+}
+
+.archived {
+  color: #888888;
+}
+
+.archived-notice {
+  background: #ff000060;
+  border: 2px solid #ff000030;
+}
