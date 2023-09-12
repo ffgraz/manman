@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <td><strong>Kommentar</strong></td>
-    <td colspan="5"><%= h node.comment %></td>
+    <td colspan="5"><%= (h node.comment).gsub! "&lt;br /&gt;", "<br/>" %></td>
   </tr>
   <tr>
   <% if node.person %>

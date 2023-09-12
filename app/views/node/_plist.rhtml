@@ -7,7 +7,7 @@
   <tr>
     <td><%= h node.name %></td>
     <td><%= h node.location.name %></td>
-    <td><%= h node.comment %></td>
+    <td><%= (h node.comment).gsub! "&lt;br /&gt;", "<br/>" %></td>
     <td><%= link_to 'Show', :action => 'show', :controller => 'node', :id => node %></td>
     <td><%= link_to 'Edit', :action => 'edit', :controller => 'node', :id => node %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :controller => 'node', :id => node }, :confirm => 'Are you sure?', :post => true %></td>
