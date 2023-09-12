@@ -80,8 +80,8 @@ div.progressBar div.background {
   color: red;
 }
 
-.archived {
-  color: #888888;
+.archived, .archived * {
+  color: #0000bb60 !important;
 }
 
 .archived-notice {
