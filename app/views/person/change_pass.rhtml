@@ -1,4 +1,5 @@
 <%= render :partial => "person/nav"  %>
+<div class="container">
 <h1>Passwort aendern</h1>
 
 <%= form_tag :action => "do_change_pass", :id => @person.id %>
@@ -20,3 +21,4 @@
 <%= submit_tag 'Change' %>
 <%= end_form_tag %>
 
+</div>

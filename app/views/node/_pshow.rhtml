@@ -1,24 +1,24 @@
 
 <% @nodes.each do |node| %>
-<table border="1" width="600">
+<table class="table-nonmax table table-striped" border="1" width="600">
   <tr>
-    <td width="120"><strong>Name</strong></td>
-    <td colspan="5"><%= h node.name %></td>
+    <td width="120">Name</td>
+    <td colspan="5"><strong><%= h node.name %></strong></td>
   </tr>
   <tr>
-    <td><strong>Kommentar</strong></td>
+    <td>Kommentar</td>
     <td colspan="5"><%= (h node.comment).gsub! "&lt;br /&gt;", "<br/>" %></td>
   </tr>
   <tr>
   <% if node.person %>
-    <td><strong>Administrator</strong></td>
+    <td>Administrator</td>
     <td colspan="5"><%= h node.person.email %></td>
   <% end %>
   <tr>
-    <td rowspan="<%= node.ip.length()+1 %>"><strong>Interfaces</strong></td>
-    <td><strong>Name</strong></td>
-    <td><strong>IP</strong></td>
-    <td><strong>Netmask</strong></td>
+    <td rowspan="<%= node.ip.length()+1 %>">Interfaces</td>
+    <td class="mw-64"><strong>Name</strong></td>
+    <td class="mw-124"><strong>IP</strong></td>
+    <td class="mw-146"><strong>Netmask</strong></td>
     <td colspan="2"><strong>Link</strong></td>
     <% node.ip.each do |ip| %>
       <tr>
@@ -38,17 +38,20 @@
     <% end %>
   </tr>
   <tr>
-    <td><strong>Smokeping</strong></td>
+    <td>Smokeping</td>
     <% if node.smokeping %>
       <td colspan="5">enabled</td>
     <% else %>
       <td colspan="5">disabled</td>
     <% end %>
   </tr>
+  <tr>
+    <td colspan="5">
+      <%= link_to 'Edit', { :controller =>'node', :action => 'edit' , :id => node.id } %> |
+      <%= link_to 'Destroy', { :controller => 'node', :action => 'destroy', :id => node.id } %>
+    </td>
+  </tr>
 </table>
-<p>
-  <%= link_to 'Edit', { :controller =>'node', :action => 'edit' , :id => node.id } %> |
-  <%= link_to 'Destroy', { :controller => 'node', :action => 'destroy', :id => node.id } %>
-</p>
+
 <p></p>
 <% end %>

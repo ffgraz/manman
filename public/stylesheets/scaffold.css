@@ -88,3 +88,19 @@ div.progressBar div.background {
   background: #ff000060;
   border: 2px solid #ff000030;
 }
+
+.table-nonmax {
+  width: initial !important;
+}
+
+.mw-64 {
+  min-width: 64px;
+}
+
+.mw-124 {
+  min-width: 124px;
+}
+
+.mw-146 {
+  min-width: 146px;
+}

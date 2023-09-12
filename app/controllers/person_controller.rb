@@ -53,7 +53,8 @@ class PersonController < ApplicationController
       @person = Person.find(params[:id])
 
       @locations = Location.find(:all,
-                       :conditions => ["person_id = ?", params[:id]] )
+                       :conditions => ["person_id = ?", params[:id]] ,
+                     :order => "name"  )
 
     rescue ActiveRecord::RecordNotFound
       render_text "Error, Person not found"

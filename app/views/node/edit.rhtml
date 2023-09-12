@@ -1,4 +1,5 @@
 <%= render :partial => "person/nav"  %>
+<div class="container">
 
 <h1>Node</h1>
 <%= start_form_tag :action => 'update', :id => @node %>
@@ -32,3 +33,5 @@
 <%= end_form_tag %>
 <hr />
 <%= link_to 'Back', { :controller => 'location', :action => 'show', :id => @node.location.id } %>
+
+</div>
