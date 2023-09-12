@@ -87,7 +87,7 @@ class LocationController < ApplicationController
   def create
     begin
       values = params[:location]
-      values[:time] = DateTime.now
+      values[:time] = Time.now()
       values[:creator_ip] = @request.env["REMOTE_ADDR"]
 
 
