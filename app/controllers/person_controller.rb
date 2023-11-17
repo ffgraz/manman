@@ -101,6 +101,7 @@ class PersonController < ApplicationController
         flash[:notice] = 'Person erfolgreich registriert'
         redirect_to :action => 'show', :id => @person
       else
+        flash[:notice] = 'Eingaben inkorrekt formatiert oder anderer fehler'
         params[:person][:password2] = "";
         params[:person][:password] = "";
         render :action => 'register', :person => params[:person]

@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
 
   attr_protected :password
 
-  validates_presence_of :email, :password, :firstname, :lastname, :admin
+  validates_presence_of :email, :password, :firstname, :lastname
   validates_uniqueness_of  :email
 
   validates_format_of :email,
