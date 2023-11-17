@@ -51,7 +51,7 @@ class NodeController < ApplicationController
 
   def do_new
     node_values = params[:node]
-    node_values[:time] = DateTime.now
+    node_values[:time] = DateTime.now.to_s()
     node_values[:creator_ip] = @request.env["REMOTE_ADDR"]
 
 #    Nets.find(:first, :conditions =>
